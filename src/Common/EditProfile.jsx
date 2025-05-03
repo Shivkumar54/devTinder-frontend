@@ -16,7 +16,6 @@ const EditProfile = ({ user }) => {
   const [save, setSave] = useState(false);
   const [age, setAge] = useState(user?.age);
   const [errorMessage, setErrorMessage] = useState("");
-  console.log("SAVE----", save);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -41,6 +40,7 @@ const EditProfile = ({ user }) => {
       }, 3000);
     } catch (err) {
       console.log(err?.response?.data);
+      setErrorMessage(err?.response?.data);
     }
   };
 

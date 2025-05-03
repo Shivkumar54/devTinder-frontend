@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { removeRequest } from "../store/slices/requestSlice";
 
 const ConnectionCard = ({ data }) => {
-
   const { _id, firstName, lastName, photoUrl, gender, age, about } = data;
 
   const isConnection = location.href.includes("connections");
@@ -50,7 +49,7 @@ const ConnectionCard = ({ data }) => {
                 {Accept} Accept
               </button>
               <button
-                onClick={() => reviewRequest("accepted", _id)}
+                onClick={() => reviewRequest("rejected", _id)}
                 className="w-32 h-10 border border-gray-600 text-gray-500 flex justify-center items-center gap-1 font-bold rounded-md text-sm cursor-pointer uppercase"
               >
                 {Reject} Reject

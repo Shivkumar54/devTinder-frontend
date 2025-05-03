@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BASE_URL } from "../utils/constants";
 import { addFeed } from "../store/slices/feedSlice";
 import UserCard from "../Common/UserCard";
+import NoConnections from "../Common/NoConnections";
 
 const Feed = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const Feed = () => {
       const res = await axios.get(BASE_URL + "/user/feed", {
         withCredentials: true,
       });
-      dispatch(addFeed(res?.data));
+      dispatch(addFeed(res?.data?.data));
     } catch (error) {
       setErr(error?.response);
     }
@@ -26,7 +27,20 @@ const Feed = () => {
     getFeedData();
   }, []);
 
-  return <div>{feed?.data && <UserCard user={feed.data[0]} />}</div>;
+  // if (
+  //   feed?.length <= 0 && (
+  //
+  //   )
+  // )
+  return (
+    <div>
+      {!feed?.length ? (
+        <NoConnections message="Looks like you have no request in list" />
+      ) : (
+        <UserCard user={feed[0]} />
+      )}
+    </div>
+  );
 };
 
 export default Feed;
