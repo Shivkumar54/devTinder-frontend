@@ -26,7 +26,7 @@ const Request = () => {
     userRequest();
   }, []);
   return (
-    <div className=" flex flex-col items-center gap-3 justify-center">
+    <div className=" flex flex-col items-center gap-3 justify-center mb-10">
       <h1 className="text-xl uppercase tracking-widest font-semibold text-gray-500 my-4">
         My friend Request
       </h1>

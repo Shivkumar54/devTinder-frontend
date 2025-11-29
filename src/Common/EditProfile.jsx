@@ -46,7 +46,7 @@ const EditProfile = ({ user }) => {
 
   return (
     <>
-      {save && <Toast />}
+      {save && <Toast message="Profile Updated Successfully." />}
       <div className="w-[60rem] flex justify-center items-center gap-12 scroll-auto">
         <div className="form w-full">
           <h1 className="text-2xl font-bold mb-3">Update Details</h1>
